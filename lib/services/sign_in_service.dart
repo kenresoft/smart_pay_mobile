@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:smart_pay_mobile/constants.dart';
 
 class LoginService {
   static Future<bool> login(String email, String password) async {
-    String apiUrl = 'https://mobile-test-2d7e555a4f85.herokuapp.com/api/v1/auth/login';
+    String apiUrl = '${Constants.baseUrl}/auth/login';
 
     try {
       var response = await http.post(
