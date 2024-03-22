@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:smart_pay_mobile/screens/sign_in.dart';
+import 'package:smart_pay_mobile/screens/sign_up.dart';
+import 'package:smart_pay_mobile/utils/routes.dart';
+
+import '../services/prefs.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({super.key});
@@ -9,46 +13,64 @@ class Onboarding extends StatefulWidget {
 }
 
 class _OnboardingState extends State<Onboarding> {
+
+  @override
+  void initState() {
+    super.initState();
+    page = RouteConstants.onboarding;
+  }
+
   @override
   Widget build(BuildContext context) {
+    debugPrint(MediaQuery.of(context).size.height.toString());
+
+    final height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        clipBehavior: Clip.antiAlias,
-        decoration: const BoxDecoration(color: Color(0xFFF9FAFB)),
+        color: const Color(0xFFF9FAFB),
         child: Column(
           children: [
             Container(
               alignment: Alignment.bottomRight,
-              padding: const EdgeInsets.only(top: 68, right: 24),
-              child: const Text(
-                'Skip',
-                textAlign: TextAlign.right,
-                style: TextStyle(
-                  color: Color(0xFF2FA2B9),
-                  fontSize: 16,
-                  fontFamily: 'SF Pro Display',
-                  fontWeight: FontWeight.w600,
-                  height: 0.09,
-                  letterSpacing: 0.30,
+              padding: EdgeInsets.only(top: height * 0.074, right: 24),
+              child: GestureDetector(
+                onTap: () => Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SignUp(),
+                  ),
+                ),
+                child: const Text(
+                  'Skip',
+                  textAlign: TextAlign.right,
+                  style: TextStyle(
+                    color: Color(0xFF2FA2B9),
+                    fontSize: 16,
+                    fontFamily: 'SFProDisplay',
+                    fontWeight: FontWeight.w600,
+                    //height: 0.09,
+                    letterSpacing: 0.30,
+                  ),
                 ),
               ),
             ),
-            const SizedBox(height: 123),
+            SizedBox(height: height * 0.126),
             Container(
               width: double.infinity,
-              height: 359,
+              height: height * 0.369,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/images/onboard-image-1.png"),
+                  image: AssetImage("assets/images/onboard_image_1.png"),
                   fit: BoxFit.fill,
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 80),
-              child: SizedBox(
+            Padding(
+              padding: EdgeInsets.only(top: height * 0.072),
+              child: const SizedBox(
                 width: 287,
                 child: Text(
                   'Finance app the safest and most trusted',
@@ -58,12 +80,13 @@ class _OnboardingState extends State<Onboarding> {
                     fontFamily: 'SFProDisplay',
                     fontWeight: FontWeight.w600,
                     //height: 0.05,
-                    //letterSpacing: -0.20,
+                    letterSpacing: -0.20,
                   ),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: height * 0.025),
             const SizedBox(
               width: 287,
               child: Text(
@@ -72,35 +95,35 @@ class _OnboardingState extends State<Onboarding> {
                 style: TextStyle(
                   color: Color(0xFF6B7280),
                   fontSize: 14,
-                  fontFamily: 'SF Pro Display',
+                  fontFamily: 'SFProDisplay',
                   fontWeight: FontWeight.w400,
                   //height: 0.11,
                   letterSpacing: 0.30,
                 ),
               ),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: height * 0.025),
             Container(
               width: 32,
               height: 6,
               decoration: ShapeDecoration(
-                color: Color(0xFF111827),
+                color: const Color(0xFF111827),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(500),
                 ),
               ),
             ),
-            const SizedBox(height: 34),
+            SizedBox(height: height * 0.04),
             GestureDetector(
               onTap: () => Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const SignIn(),
+                  builder: (context) => const SignUp(),
                 ),
               ),
               child: Container(
                 width: 287,
-                height: 56,
+                height: height * 0.058,
                 padding: const EdgeInsets.all(8),
                 decoration: ShapeDecoration(
                   color: const Color(0xFF111827),
@@ -119,9 +142,8 @@ class _OnboardingState extends State<Onboarding> {
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,
-                        fontFamily: 'SF Pro Display',
+                        fontFamily: 'SFProDisplay',
                         fontWeight: FontWeight.w700,
-                        height: 0.09,
                         letterSpacing: 0.30,
                       ),
                     ),
