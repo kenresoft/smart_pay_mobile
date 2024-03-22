@@ -1,51 +1,42 @@
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
-import 'package:smart_pay_mobile/constants.dart';
+import 'package:smart_pay_mobile/utils/constants.dart';
 
-class LoginService {
-  static Future<bool> login(String email, String password) async {
-    String apiUrl = '${Constants.baseUrl}/auth/login';
+class SignInService {
+  static const url = '${Constants.baseUrl}/auth/login';
 
+  static Future<Map<String, dynamic>> signIn({
+    required String email,
+    required String password,
+    required String deviceName,
+  }) async {
     try {
-      var response = await http.post(
-        Uri.parse(apiUrl),
-        headers: {
-          'Accept': 'application/json',
+      final response = await http.post(
+        Uri.parse(url),
+        headers: <String, String>{
+          'Content-Type': 'application/json',
         },
-        body: {
-          'email': email.trim(),
-          'password': password.trim(),
-          'device_name': 'web',
-        },
+        body: jsonEncode(<String, String>{
+          'email': email,
+          'password': password,
+          'device_name': deviceName,
+        }),
       );
 
       if (response.statusCode == 200) {
-        // Parse response JSON
-        var responseData = jsonDecode(response.body);
-        var status = responseData['status'];
-        var errors = responseData['errors'];
-
-        if (status == true) {
-          // Login successful
-          return true;
-        } else if (errors != null && errors.isNotEmpty) {
-          // Handle errors in the error object
-          print('Errors in response: $errors');
-          return false;
-        } else {
-          // Unexpected response format
-          print('Unexpected response format');
-          return false;
-        }
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        return responseData;
+      } else if (response.statusCode == 422) {
+        final Map<String, dynamic> errorResponse = jsonDecode(response.body);
+        final Map<String, dynamic> errors = errorResponse['errors'];
+        return {'status': false, 'message': errorResponse['message'], 'errors': errors};
       } else {
-        // Handle other HTTP errors
-        print('Error: ${response.statusCode} - ${response.body}');
-        return false;
+        // Handle other status codes if needed
+        return {'error': jsonDecode(response.body)['message']};
       }
     } catch (e) {
-      // Handle exceptions
-      print('Exception during login: $e');
-      return false;
+      throw Exception('Error: $e');
     }
   }
 }

@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:smart_pay_mobile/utils/constants.dart';
 
 class SignUpService {
-  static const String baseUrl = 'https://mobile-test-2d7e555a4f85.herokuapp.com/api/v1';
 
   Future<Map<String, dynamic>> authenticateEmail(String email) async {
-    final Uri apiUrl = Uri.parse('$baseUrl/auth/email'); // Example endpoint for email authentication
+    final Uri apiUrl = Uri.parse('${Constants.baseUrl}/auth/email');
     final Map<String, String> headers = {
       'Content-Type': 'application/json',
     };
@@ -18,11 +18,17 @@ class SignUpService {
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         return responseData;
+      } else if (response.statusCode == 422) {
+        final Map<String, dynamic> errorResponse = jsonDecode(response.body);
+        final Map<String, dynamic> errors = errorResponse['errors'];
+        return {'status': false, 'message': errorResponse['message'], 'errors': errors};
       } else {
-        return {'error': 'Failed to connect to the server. Please try again later.'};
+        // Handle other status codes if needed
+        return {'error': jsonDecode(response.body)['message']};
       }
     } catch (error) {
-      return {'error': 'An error occurred. Please try again later.'};
+
+      return {'error': error};
     }
   }
 }
