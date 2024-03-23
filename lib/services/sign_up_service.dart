@@ -3,7 +3,6 @@ import 'package:http/http.dart' as http;
 import 'package:smart_pay_mobile/utils/constants.dart';
 
 class SignUpService {
-
   Future<Map<String, dynamic>> authenticateEmail(String email) async {
     final Uri apiUrl = Uri.parse('${Constants.baseUrl}/auth/email');
     final Map<String, String> headers = {
@@ -22,13 +21,15 @@ class SignUpService {
         final Map<String, dynamic> errorResponse = jsonDecode(response.body);
         final Map<String, dynamic> errors = errorResponse['errors'];
         return {'status': false, 'message': errorResponse['message'], 'errors': errors};
+      } else if (response.statusCode == 429) {
+        return {'status': false, 'message': 'Too Many Attempts.'};
       } else {
         // Handle other status codes if needed
         return {'error': jsonDecode(response.body)['message']};
       }
     } catch (error) {
-
-      return {'error': error};
+      return {'error': error.toString()};
     }
   }
 }
+
