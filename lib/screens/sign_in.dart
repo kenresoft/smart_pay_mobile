@@ -10,6 +10,8 @@ import '../services/prefs.dart';
 import '../services/sign_in_service.dart';
 import '../utils/routes.dart';
 
+//  demo@demo.com Dopheus22
+
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
 
@@ -98,8 +100,8 @@ class _SignInState extends State<SignIn> with TickerProviderStateMixin {
         final token = response['data']['token'];
         final userId = userData['id'];
         fullName = userData['full_name'];
-        //callback(true, 'Sign in successful!', userId, token);
-        Future.delayed(const Duration(milliseconds: 3000), () {
+        showMessage('Sign in successful!');
+        Future.delayed(const Duration(milliseconds: 1000), () {
           // Navigate to the next screen after animations complete
           Navigator.pushReplacement(
             context,
@@ -110,8 +112,7 @@ class _SignInState extends State<SignIn> with TickerProviderStateMixin {
         });
       } else {
         final errorMessage = response['message'];
-        showMessage(errorMessage ?? 'Error');
-        //callback(false, errorMessage, null, null);
+        showMessage(errorMessage ?? 'An error occurred!');
       }
     }
   }
@@ -165,7 +166,7 @@ class _SignInState extends State<SignIn> with TickerProviderStateMixin {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(/*top: height * 0.029, */ bottom: height * 0.005),
+                padding: EdgeInsets.only(bottom: height * 0.005),
                 child: AnimatedTextKit(
                   pause: const Duration(seconds: 1),
                   displayFullTextOnTap: true,
@@ -331,8 +332,6 @@ class _SignInState extends State<SignIn> with TickerProviderStateMixin {
                   ),
                 ),
               ),
-
-              //  demo@demo.com Dopheus22
 
               // Animated widgets for success message
               Container(

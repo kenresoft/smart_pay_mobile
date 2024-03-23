@@ -322,7 +322,7 @@ class _IdentityState extends State<Identity> with TickerProviderStateMixin {
                         prefixIcon: condition(
                           countryCode.isNotEmpty,
                           Container(
-                            width: 48, // Adjust the width as needed
+                            width: 48,
                             height: double.infinity,
                             padding: const EdgeInsets.all(8),
                             //child: CountryFlag.fromCountryCode(country, height: 30),
@@ -408,10 +408,15 @@ class _IdentityState extends State<Identity> with TickerProviderStateMixin {
                       passwordController.text,
                       (status, message) => conditionFunction(
                         status,
-                        () => Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => const PinScreen()),
-                        ),
+                        () {
+                          fullName = fullNameController.text;
+                          return Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const PinScreen(),
+                            ),
+                          );
+                        },
                         () => null,
                       ),
                     ),

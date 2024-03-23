@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:collection';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:extensionresoft/extensionresoft.dart';
@@ -39,6 +40,7 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
   set secondsLeft(int value) => _secondsLeft = value;
 
   final StreamController<String> _messageStreamController = StreamController<String>();
+  final NotificationDialog _notificationDialog = NotificationDialog(messageQueue: Queue<String>());
 
   @override
   void initState() {
@@ -424,9 +426,11 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
               stream: _messageStreamController.stream,
               builder: (context, snapshot) {
                 if (snapshot.hasData && snapshot.data != null && snapshot.data!.isNotEmpty) {
+                  // Add the message to the messageQueue of NotificationDialog
+                  _notificationDialog.messageQueue.add(snapshot.data!);
                   return Positioned(
                     top: 50,
-                    child: NotificationDialog(message: snapshot.data!),
+                    child: NotificationDialog(messageQueue: _notificationDialog.messageQueue),
                   );
                 } else {
                   return Container(); // Return an empty container if no message is available

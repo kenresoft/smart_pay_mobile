@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:collection';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
@@ -36,6 +37,7 @@ class _PinScreenState extends State<PinScreen> with TickerProviderStateMixin {
   int _countdown = 10;
 
   final StreamController<String> _messageStreamController = StreamController<String>();
+  final NotificationDialog _notificationDialog = NotificationDialog(messageQueue: Queue<String>());
 
   @override
   void initState() {
@@ -381,13 +383,28 @@ class _PinScreenState extends State<PinScreen> with TickerProviderStateMixin {
                 ],
               ),
             ),
-            StreamBuilder<String>(
+            /*StreamBuilder<String>(
               stream: _messageStreamController.stream,
               builder: (context, snapshot) {
                 if (snapshot.hasData && snapshot.data != null && snapshot.data!.isNotEmpty) {
                   return Positioned(
                     top: 50,
                     child: NotificationDialog(message: snapshot.data!),
+                  );
+                } else {
+                  return Container(); // Return an empty container if no message is available
+                }
+              },
+            ),*/
+            StreamBuilder<String>(
+              stream: _messageStreamController.stream,
+              builder: (context, snapshot) {
+                if (snapshot.hasData && snapshot.data != null && snapshot.data!.isNotEmpty) {
+                  // Add the message to the messageQueue of NotificationDialog
+                  _notificationDialog.messageQueue.add(snapshot.data!);
+                  return Positioned(
+                    top: 50,
+                    child: NotificationDialog(messageQueue: _notificationDialog.messageQueue),
                   );
                 } else {
                   return Container(); // Return an empty container if no message is available

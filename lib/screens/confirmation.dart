@@ -179,11 +179,10 @@ class _ConfirmationState extends State<Confirmation> {
               SizedBox(height: height * 0.035),
               GestureDetector(
                 onTap: () {
-                  //page = RouteConstants.onboarding;
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return const CustomDialog();
+                      return const ActionDialog();
                     },
                   ).then((value) {
                     if (value != null) {

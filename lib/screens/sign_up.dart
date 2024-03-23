@@ -82,20 +82,24 @@ class _SignUpState extends State<SignUp> with TickerProviderStateMixin {
       if (errors.containsKey('email')) {
         showMessage(errors['email'][0]);
       }
-
-      callback(false, loginMessage!);
+      callback(false, errors['email'][0]);
     } else {
       if (response['status'] == true) {
         setState(() {
           token = response['data']['token'];
           isCodeSent = true;
           emailAddress = email;
-          callback(true, 'Token generated successfully!');
         });
+        callback(true, 'Token generated successfully!');
       } else {
         final errorMessage = response['message'];
-        showMessage(errorMessage ?? 'Error');
-        callback(false, errorMessage?? 'Error');
+        if (errorMessage == 'Too Many Attempts.') {
+          showMessage(errorMessage);
+          callback(false, errorMessage);
+        } else {
+          showMessage(errorMessage);
+          callback(false, errorMessage);
+        }
       }
     }
   }

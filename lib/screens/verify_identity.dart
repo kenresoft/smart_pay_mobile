@@ -1,6 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:extensionresoft/extensionresoft.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:smart_pay_mobile/utils/utils.dart';
 
 import '../services/prefs.dart';
 import '../utils/routes.dart';
@@ -167,7 +169,7 @@ class _VerifyIdentityState extends State<VerifyIdentity> with TickerProviderStat
                       ),
                     ),
                     Container(
-                      width: 327,
+                      width: width,
                       height: height * 0.1,
                       margin: EdgeInsets.only(top: height * 0.038),
                       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -213,12 +215,12 @@ class _VerifyIdentityState extends State<VerifyIdentity> with TickerProviderStat
                                 ),
                               ),
                               const SizedBox(width: 18),
-                              const Column(
+                              Column(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Email',
                                     style: TextStyle(
                                       color: Color(0xFF111827),
@@ -228,10 +230,10 @@ class _VerifyIdentityState extends State<VerifyIdentity> with TickerProviderStat
                                       letterSpacing: 0.30,
                                     ),
                                   ),
-                                  SizedBox(height: 4),
+                                  const SizedBox(height: 4),
                                   Text(
-                                    'A*******@mail.com',
-                                    style: TextStyle(
+                                    getEmail ?? 'Email is not valid',
+                                    style: const TextStyle(
                                       color: Color(0xFF6B7280),
                                       fontSize: 14,
                                       fontFamily: 'SFProDisplay',
@@ -262,15 +264,18 @@ class _VerifyIdentityState extends State<VerifyIdentity> with TickerProviderStat
               /// Button
               GestureDetector(
                 onTap: () {
-                  verificationEmailAddress = emailController.text.trim();
-                  Navigator.pushNamed(context, RouteConstants.resetPassword);
+                  conditionFunction(
+                    getEmail != null,
+                    () => Navigator.pushNamed(context, RouteConstants.resetPassword),
+                    () => null,
+                  );
                 },
                 child: Container(
                   width: width,
                   height: height * 0.071,
                   padding: const EdgeInsets.all(8),
                   decoration: ShapeDecoration(
-                    color: const Color(0xFF111827),
+                    color: getEmail != null ? const Color(0xFF111827) : Colors.grey,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
@@ -328,4 +333,6 @@ class _VerifyIdentityState extends State<VerifyIdentity> with TickerProviderStat
       ),
     );
   }
+
+  String? get getEmail => Utils.maskEmail(verificationEmailAddress);
 }
