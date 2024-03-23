@@ -6,9 +6,14 @@ This repository contains the code for the SmartPay mobile application, developed
 
 ## Screenshots
 
-![Onboarding Screen](screenshots/onboarding_screen.png)
-![Login Screen](screenshots/login_screen.png)
-![Secret Message Screen](screenshots/secret_message_screen.png)
+| Sign Up Screen                                                                                                       | Sign In Screen                                                                                                       |
+|----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| ![Sign Up Screen](https://github.com/kenresoft/smart_pay_mobile/blob/master/screenshots/sign_up_screen.png?raw=true) | ![Sign In Screen](https://github.com/kenresoft/smart_pay_mobile/blob/master/screenshots/sign_in_screen.png?raw=true) |
+
+| PIN Lock Screen                                                                                                   | Confirmation Screen                                                                                                            |
+|-------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| ![PIN Lock Screen](https://github.com/kenresoft/smart_pay_mobile/blob/master/screenshots/pin_screen.png?raw=true) | ![Confirmation Screen](https://github.com/kenresoft/smart_pay_mobile/blob/master/screenshots/confirmation_screen.png?raw=true) |
+
 
 ## Design
 
