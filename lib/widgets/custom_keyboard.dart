@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class CustomKeyboard extends StatelessWidget {
   final Function(String) onKeyPressed;
@@ -7,14 +8,16 @@ class CustomKeyboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Container(
-      height: 270,
-      //width: MediaQuery.of(context).size.width,
-      margin: const EdgeInsets.symmetric(horizontal: 15),
+      height: 0.39 * height,
+      width: MediaQuery.of(context).size.width,
+      margin: EdgeInsets.symmetric(horizontal: width * 0.033),
       child: GridView.count(
         crossAxisCount: 3,
         padding: EdgeInsets.zero,
-        crossAxisSpacing: 45,
+        crossAxisSpacing: width * 0.1004,
         physics: const NeverScrollableScrollPhysics(),
         children: List.generate(
           12,
@@ -26,6 +29,8 @@ class CustomKeyboard extends StatelessWidget {
                 onTap: () => onKeyPressed('0'),
                 child: Container(
                   alignment: Alignment.center,
+                  color: Colors.white,
+                  margin: const EdgeInsets.all(10),
                   child: const Text(
                     '0',
                     textAlign: TextAlign.center,
@@ -44,6 +49,8 @@ class CustomKeyboard extends StatelessWidget {
                 onTap: () => onKeyPressed('*'),
                 child: Container(
                   alignment: Alignment.center,
+                  color: Colors.white,
+                  margin: const EdgeInsets.all(10),
                   child: const Text(
                     '*',
                     textAlign: TextAlign.center,
@@ -62,6 +69,8 @@ class CustomKeyboard extends StatelessWidget {
                 onTap: () => onKeyPressed('delete'),
                 child: Container(
                   alignment: Alignment.center,
+                  color: Colors.white,
+                  margin: const EdgeInsets.all(10),
                   child: const Icon(
                     CupertinoIcons.delete_left,
                     size: 20,
@@ -75,6 +84,8 @@ class CustomKeyboard extends StatelessWidget {
                 onTap: () => onKeyPressed('${index + 1}'),
                 child: Container(
                   alignment: Alignment.center,
+                  color: Colors.white,
+                  margin: const EdgeInsets.all(10),
                   child: Text(
                     '${index + 1}',
                     textAlign: TextAlign.center,
