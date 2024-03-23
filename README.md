@@ -1,8 +1,11 @@
 # SmartPay Mobile App
 
-![SmartPay Screens](screenshots/smartpay_screens.png)
+This repository contains the code for the **_SmartPay_** mobile application, 
+developed by us, as part of a mobile developer screening test for Apex Network. 
+The app is designed to provide an intuitive onboarding and authentication flow for users, 
+along with relevant animations and edge case handling.
 
-This repository contains the code for the SmartPay mobile application, developed by us, as part of a mobile developer screening test for Apex Network. The app is designed to provide an intuitive onboarding and authentication flow for users, along with relevant animations and edge case handling.
+**_SmartPay_** is an imaginary app for financial services.
 
 ## Screenshots
 
