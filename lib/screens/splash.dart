@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fontresoft/fontresoft.dart';
 import 'package:smart_pay_mobile/utils/constants.dart';
 import 'package:smart_pay_mobile/utils/routes.dart';
 
@@ -40,26 +41,26 @@ class _SplashState extends State<Splash> {
             children: [
               Image.asset('assets/logo.png'),
               const SizedBox(height: 20),
-              const Text.rich(
+              Text.rich(
                 TextSpan(
                   children: [
                     TextSpan(
                       text: 'Smart',
-                      style: TextStyle(
-                        color: Color(0xFF111827),
+                      style: Font.sFProDisplay().copyWith(
+                        color: const Color(0xFF111827),
                         fontSize: 32,
-                        fontFamily: 'SFProDisplay',
-                        fontWeight: FontWeight.w600,
+                        
+                        fontWeight: FontWeight.w700,
                         height: 0.04,
                       ),
                     ),
                     TextSpan(
                       text: 'pay.',
-                      style: TextStyle(
-                        color: Color(0xFF0A6375),
+                      style: Font.sFProDisplay().copyWith(
+                        color: const Color(0xFF0A6375),
                         fontSize: 32,
-                        fontFamily: 'SFProDisplay',
-                        fontWeight: FontWeight.w600,
+                        
+                        fontWeight: FontWeight.w700,
                         height: 0.04,
                       ),
                     ),
