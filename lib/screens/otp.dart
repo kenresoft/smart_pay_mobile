@@ -5,6 +5,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:extensionresoft/extensionresoft.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fontresoft/fontresoft.dart';
 import 'package:smart_pay_mobile/screens/identity.dart';
 import 'package:smart_pay_mobile/screens/sign_up.dart';
 import 'package:smart_pay_mobile/services/prefs.dart';
@@ -87,7 +88,7 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
       if (response.containsKey('error')) {
         setState(() {
           loginMessage = response['error'];
-          print(loginMessage);
+          debugPrint(loginMessage);
         });
       } else {
         final bool status = response['status'];
@@ -108,7 +109,7 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
           setState(() {
             loginMessage = errorMessage;
           });
-          print(loginMessage);
+          debugPrint(loginMessage);
         }
       }
       _isResendClickable = false;
@@ -122,7 +123,7 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
     for (var controller in controllers) {
       combinedOtp += controller.text.trim();
     }
-    print(combinedOtp);
+    debugPrint(combinedOtp);
     return combinedOtp;
   }
 
@@ -168,7 +169,7 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
       callback(false, errors['token'][0]);
     } else {
       if (response['status'] == true) {
-        final token = response['data']['token']; // Returned by API but not needed.
+        //final token = response['data']['token']; // Returned by API but not needed.
         _showMessageNotification('Token verified successfully!');
         callback(true, 'Token verified successfully!');
         setState(() {
@@ -187,7 +188,7 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
 
-    print('$emailAddress - $token');
+    debugPrint('$emailAddress - $token');
     _showMessageNotification(token);
     return Scaffold(
       body: SingleChildScrollView(
@@ -232,10 +233,9 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
                       animatedTexts: [
                         TyperAnimatedText(
                           'Verify it’s you',
-                          textStyle: const TextStyle(
-                            color: Color(0xFF111827),
+                          textStyle: Font.sFProDisplay().copyWith(
+                            color: const Color(0xFF111827),
                             fontSize: 27,
-                            fontFamily: 'SFProDisplay',
                             fontWeight: FontWeight.w600,
                             letterSpacing: -0.20,
                           ),
@@ -247,35 +247,33 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: height * 0.02),
-                    child: const Text.rich(
+                    child: Text.rich(
                       TextSpan(
                         children: [
                           TextSpan(
                             text: 'We send a code to ( ',
-                            style: TextStyle(
-                              color: Color(0xFF6B7280),
+                            style: Font.sFProDisplay().copyWith(
+                              color: const Color(0xFF6B7280),
                               fontSize: 19,
-                              fontFamily: 'SFProDisplay',
                               fontWeight: FontWeight.w400,
                               letterSpacing: 0.30,
                             ),
                           ),
                           TextSpan(
                             text: '*****@mail.com ',
-                            style: TextStyle(
-                              color: Color(0xFF111827),
+                            style: Font.sFProDisplay().copyWith(
+                              color: const Color(0xFF111827),
                               fontSize: 19,
-                              fontFamily: 'SFProDisplay',
                               fontWeight: FontWeight.w500,
                               letterSpacing: 0.30,
                             ),
                           ),
                           TextSpan(
                             text: '). Enter it here to verify your identity',
-                            style: TextStyle(
-                              color: Color(0xFF6B7280),
+                            style: Font.sFProDisplay().copyWith(
+                              color: const Color(0xFF6B7280),
                               fontSize: 19,
-                              fontFamily: 'SFProDisplay',
+
                               fontWeight: FontWeight.w400,
                               //height: 0.09,
                               letterSpacing: 0.30,
@@ -324,10 +322,9 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
                                     controllers[i].text = value.substring(0, 1);
                                   }
                                 },
-                                style: const TextStyle(
-                                  color: Color(0xFF111827),
+                                style: Font.sFProDisplay().copyWith(
+                                  color: const Color(0xFF111827),
                                   fontSize: 21,
-                                  fontFamily: 'SFProDisplay',
                                   fontWeight: FontWeight.w600,
                                   letterSpacing: 0.30,
                                 ),
@@ -359,10 +356,9 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
                       child: Text(
                         'Resend Code ${secondsLeft.toString().padLeft(2, '0')} secs',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: Font.sFProDisplay().copyWith(
                           color: !_isResendClickable ? const Color(0xFF717171) : const Color(0xFF111827),
                           fontSize: 18,
-                          fontFamily: 'SFProDisplay',
                           fontWeight: FontWeight.w600,
                           letterSpacing: 0.30,
                         ),
@@ -400,13 +396,12 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
                             borderRadius: BorderRadius.circular(16),
                           ),
                         ),
-                        child: const Text(
+                        child: Text(
                           'Confirm',
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: Font.sFProDisplay().copyWith(
                             color: Colors.white,
                             fontSize: 19,
-                            fontFamily: 'SFProDisplay',
                             fontWeight: FontWeight.w600,
                             letterSpacing: 0.30,
                           ),
