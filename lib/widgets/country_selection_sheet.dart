@@ -1,6 +1,7 @@
 import 'package:country_icons/country_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fontresoft/fontresoft.dart';
 import 'package:iso_countries/iso_countries.dart';
 import 'package:smart_pay_mobile/utils/constants.dart';
 
@@ -84,23 +85,21 @@ class _CountrySelectionBottomSheetState extends State<CountrySelectionBottomShee
                     ),
                     child: TextField(
                       controller: searchController,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         border: InputBorder.none,
-                        prefixIcon: Icon(CupertinoIcons.search, size: 24),
+                        prefixIcon: const Icon(CupertinoIcons.search, size: 24),
                         hintText: 'Search',
-                        hintStyle: TextStyle(
-                          color: Color(0xFF9CA3AF),
+                        hintStyle: Font.sFProDisplay().copyWith(
+                          color: const Color(0xFF9CA3AF),
                           fontSize: 19,
-                          fontFamily: 'SFProDisplay',
                           fontWeight: FontWeight.w400,
                           letterSpacing: 0.30,
                         ),
                       ),
-                      style: const TextStyle(
-                        color: Color(0xFF111827),
+                      style: Font.sFProDisplay().copyWith(
+                        color: const Color(0xFF111827),
                         fontSize: 21,
-                        fontFamily: 'SFProDisplay',
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                         letterSpacing: 0.30,
                       ),
                     ),
@@ -112,14 +111,13 @@ class _CountrySelectionBottomSheetState extends State<CountrySelectionBottomShee
                       countryCode = Constants.empty;
                       Navigator.pop(context);
                     },
-                    child: const Text(
+                    child: Text(
                       'Cancel',
                       textAlign: TextAlign.right,
-                      style: TextStyle(
-                        color: Color(0xFF111827),
+                      style: Font.sFProDisplay().copyWith(
+                        color: const Color(0xFF111827),
                         fontSize: 19,
-                        fontFamily: 'SFProDisplay',
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                         letterSpacing: 0.30,
                       ),
                     ),
@@ -170,10 +168,9 @@ class _CountrySelectionBottomSheetState extends State<CountrySelectionBottomShee
                                     ),
                                     Text(
                                       country.code,
-                                      style: const TextStyle(
-                                        color: Color(0xFF6B7280),
+                                      style: Font.sFProDisplay().copyWith(
+                                        color: const Color(0xFF6B7280),
                                         fontSize: 16,
-                                        fontFamily: 'SFProDisplay',
                                         fontWeight: FontWeight.w500,
                                         letterSpacing: 0.30,
                                       ),
@@ -181,11 +178,10 @@ class _CountrySelectionBottomSheetState extends State<CountrySelectionBottomShee
                                     const SizedBox(width: 16),
                                     Text(
                                       country.name,
-                                      style: const TextStyle(
-                                        color: Color(0xFF111827),
+                                      style: Font.sFProDisplay().copyWith(
+                                        color: const Color(0xFF111827),
                                         fontSize: 16,
-                                        fontFamily: 'SFProDisplay',
-                                        fontWeight: FontWeight.w600,
+                                        fontWeight: FontWeight.w700,
                                         letterSpacing: 0.30,
                                       ),
                                     ),
