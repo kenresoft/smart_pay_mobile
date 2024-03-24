@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fontresoft/fontresoft.dart';
 
 import '../services/prefs.dart';
 import '../utils/routes.dart';
@@ -117,11 +118,10 @@ class _ResetPasswordState extends State<ResetPassword> with TickerProviderStateM
                         animatedTexts: [
                           TyperAnimatedText(
                             'Create New Password',
-                            textStyle: const TextStyle(
-                              color: Color(0xFF111827),
+                            textStyle: Font.sFProDisplay().copyWith(
+                              color: const Color(0xFF111827),
                               fontSize: 27,
-                              fontFamily: 'SFProDisplay',
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w700,
                               letterSpacing: -0.20,
                             ),
                             speed: const Duration(milliseconds: 100),
@@ -132,12 +132,11 @@ class _ResetPasswordState extends State<ResetPassword> with TickerProviderStateM
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: height * 0.02),
-                      child: const Text(
+                      child: Text(
                         'Please, enter a new password below different from the previous password',
-                        style: TextStyle(
-                          color: Color(0xFF6B7280),
+                        style: Font.sFProDisplay().copyWith(
+                          color: const Color(0xFF6B7280),
                           fontSize: 19,
-                          fontFamily: 'SFProDisplay',
                           fontWeight: FontWeight.w400,
                           letterSpacing: 0.30,
                         ),
@@ -177,19 +176,18 @@ class _ResetPasswordState extends State<ResetPassword> with TickerProviderStateM
                                 setState(() => obscurePasswordText = !obscurePasswordText);
                               },
                             ),
-                            hintStyle: const TextStyle(
-                              color: Color(0xFF9CA3AF),
+                            hintStyle: Font.sFProDisplay().copyWith(
+                              color: const Color(0xFF9CA3AF),
                               fontSize: 19,
-                              fontFamily: 'SFProDisplay',
                               fontWeight: FontWeight.w400,
                               letterSpacing: 0.30,
                             ),
                           ),
-                          style: const TextStyle(
-                            color: Color(0xFF111827),
+                          style: Font.sFProDisplay().copyWith(
+                            color: const Color(0xFF111827),
                             fontSize: 24,
                             fontFamily: 'SF Pro Display',
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w700,
                             letterSpacing: 4,
                           ),
                         ),
@@ -227,19 +225,18 @@ class _ResetPasswordState extends State<ResetPassword> with TickerProviderStateM
                                 setState(() => obscureConfirmPasswordText = !obscureConfirmPasswordText);
                               },
                             ),
-                            hintStyle: const TextStyle(
-                              color: Color(0xFF9CA3AF),
+                            hintStyle: Font.sFProDisplay().copyWith(
+                              color: const Color(0xFF9CA3AF),
                               fontSize: 19,
-                              fontFamily: 'SFProDisplay',
                               fontWeight: FontWeight.w400,
                               letterSpacing: 0.30,
                             ),
                           ),
-                          style: const TextStyle(
-                            color: Color(0xFF111827),
+                          style: Font.sFProDisplay().copyWith(
+                            color: const Color(0xFF111827),
                             fontSize: 24,
                             fontFamily: 'SF Pro Display',
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w700,
                             letterSpacing: 4,
                           ),
                         ),
@@ -267,7 +264,7 @@ class _ResetPasswordState extends State<ResetPassword> with TickerProviderStateM
                         borderRadius: BorderRadius.circular(16),
                       ),
                     ),
-                    child: const Row(
+                    child: Row(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -275,11 +272,10 @@ class _ResetPasswordState extends State<ResetPassword> with TickerProviderStateM
                         Text(
                           'Create new password',
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: Font.sFProDisplay().copyWith(
                             color: Colors.white,
                             fontSize: 19,
-                            fontFamily: 'SFProDisplay',
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w700,
                             letterSpacing: 0.30,
                           ),
                         ),
@@ -301,10 +297,9 @@ class _ResetPasswordState extends State<ResetPassword> with TickerProviderStateM
                         position: _slideInAnimation,
                         child: Text(
                           loginMessage ?? '',
-                          style: const TextStyle(
+                          style: Font.sFProDisplay().copyWith(
                             color: Colors.green,
                             fontSize: 18,
-                            fontFamily: 'SFProDisplay',
                             fontWeight: FontWeight.w500,
                           ),
                           textAlign: TextAlign.center,
