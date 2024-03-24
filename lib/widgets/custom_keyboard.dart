@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fontresoft/fontresoft.dart';
 
 class CustomKeyboard extends StatelessWidget {
   final Function(String) onKeyPressed;
@@ -31,13 +32,12 @@ class CustomKeyboard extends StatelessWidget {
                   alignment: Alignment.center,
                   color: Colors.white,
                   margin: const EdgeInsets.all(10),
-                  child: const Text(
+                  child: Text(
                     '0',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color(0xFF111827),
+                    style: Font.sFProDisplay().copyWith(
+                      color: const Color(0xFF111827),
                       fontSize: 28,
-                      fontFamily: 'SFProDisplay',
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -51,13 +51,12 @@ class CustomKeyboard extends StatelessWidget {
                   alignment: Alignment.center,
                   color: Colors.white,
                   margin: const EdgeInsets.all(10),
-                  child: const Text(
+                  child: Text(
                     '*',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color(0xFF111827),
+                    style: Font.sFProDisplay().copyWith(
+                      color: const Color(0xFF111827),
                       fontSize: 30,
-                      fontFamily: 'SFProDisplay',
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -89,10 +88,9 @@ class CustomKeyboard extends StatelessWidget {
                   child: Text(
                     '${index + 1}',
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      color: Color(0xFF111827),
+                    style: Font.sFProDisplay().copyWith(
+                      color: const Color(0xFF111827),
                       fontSize: 28,
-                      fontFamily: 'SFProDisplay',
                       fontWeight: FontWeight.w500,
                     ),
                   ),
