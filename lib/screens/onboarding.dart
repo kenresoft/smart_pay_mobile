@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smart_pay_mobile/screens/sign_in.dart';
+import 'package:fontresoft/fontresoft.dart';
 import 'package:smart_pay_mobile/screens/sign_up.dart';
 import 'package:smart_pay_mobile/utils/routes.dart';
 
@@ -43,14 +43,14 @@ class _OnboardingState extends State<Onboarding> {
                     builder: (context) => const SignUp(),
                   ),
                 ),
-                child: const Text(
+                child: Text(
                   'Skip',
                   textAlign: TextAlign.right,
-                  style: TextStyle(
-                    color: Color(0xFF2FA2B9),
+                  style: Font.sFProDisplay().copyWith(
+                    color: const Color(0xFF2FA2B9),
                     fontSize: 16,
-                    fontFamily: 'SFProDisplay',
-                    fontWeight: FontWeight.w600,
+
+                    fontWeight: FontWeight.w700,
                     //height: 0.09,
                     letterSpacing: 0.30,
                   ),
@@ -70,15 +70,15 @@ class _OnboardingState extends State<Onboarding> {
             ),
             Padding(
               padding: EdgeInsets.only(top: height * 0.072),
-              child: const SizedBox(
+              child: SizedBox(
                 width: 287,
                 child: Text(
                   'Finance app the safest and most trusted',
-                  style: TextStyle(
-                    color: Color(0xFF111827),
+                  style: Font.sFProDisplay().copyWith(
+                    color: const Color(0xFF111827),
                     fontSize: 24,
-                    fontFamily: 'SFProDisplay',
-                    fontWeight: FontWeight.w600,
+
+                    fontWeight: FontWeight.w700,
                     //height: 0.05,
                     letterSpacing: -0.20,
                   ),
@@ -87,15 +87,15 @@ class _OnboardingState extends State<Onboarding> {
               ),
             ),
             SizedBox(height: height * 0.025),
-            const SizedBox(
+            SizedBox(
               width: 287,
               child: Text(
                 'Your finance work starts here. Our here to help you track and deal with speeding up your transactions.',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Color(0xFF6B7280),
+                style: Font.sFProDisplay().copyWith(
+                  color: const Color(0xFF6B7280),
                   fontSize: 14,
-                  fontFamily: 'SFProDisplay',
+
                   fontWeight: FontWeight.w400,
                   //height: 0.11,
                   letterSpacing: 0.30,
@@ -131,7 +131,7 @@ class _OnboardingState extends State<Onboarding> {
                     borderRadius: BorderRadius.circular(16),
                   ),
                 ),
-                child: const Row(
+                child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -139,10 +139,9 @@ class _OnboardingState extends State<Onboarding> {
                     Text(
                       'Get Started',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: Font.sFProDisplay().copyWith(
                         color: Colors.white,
                         fontSize: 16,
-                        fontFamily: 'SFProDisplay',
                         fontWeight: FontWeight.w700,
                         letterSpacing: 0.30,
                       ),
