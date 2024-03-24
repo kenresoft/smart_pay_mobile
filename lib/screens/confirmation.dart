@@ -1,6 +1,7 @@
 import 'package:extensionresoft/extensionresoft.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fontresoft/fontresoft.dart';
 import 'package:smart_pay_mobile/services/prefs.dart';
 import 'package:smart_pay_mobile/utils/utils.dart';
 
@@ -150,24 +151,22 @@ class _ConfirmationState extends State<Confirmation> {
                     Text(
                       'Congratulations, ${Utils.getFirstName(fullName)}',
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Color(0xFF111827),
+                      style: Font.sFProDisplay().copyWith(
+                        color: const Color(0xFF111827),
                         fontSize: 29,
-                        fontFamily: 'SFProDisplay',
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                         letterSpacing: -0.20,
                       ),
                     ),
                     SizedBox(height: height * 0.015),
                     SizedBox(
                       width: width,
-                      child: const Text(
+                      child: Text(
                         'You’ve completed the onboarding, \nyou can start using',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xFF6B7280),
+                        style: Font.sFProDisplay().copyWith(
+                          color: const Color(0xFF6B7280),
                           fontSize: 20,
-                          fontFamily: 'SFProDisplay',
                           fontWeight: FontWeight.w400,
                           letterSpacing: 0.30,
                         ),
@@ -207,14 +206,13 @@ class _ConfirmationState extends State<Confirmation> {
                       borderRadius: BorderRadius.circular(16),
                     ),
                   ),
-                  child: const Text(
+                  child: Text(
                     'Get Started',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: Font.sFProDisplay().copyWith(
                       color: Colors.white,
                       fontSize: 20,
-                      fontFamily: 'SFProDisplay',
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w700,
                       letterSpacing: 0.30,
                     ),
                   ),
