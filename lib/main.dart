@@ -1,5 +1,6 @@
 import 'package:extensionresoft/extensionresoft.dart';
 import 'package:flutter/material.dart';
+import 'package:fontresoft/fontresoft.dart';
 import 'package:smart_pay_mobile/screens/confirmation.dart';
 import 'package:smart_pay_mobile/screens/identity.dart';
 import 'package:smart_pay_mobile/screens/onboarding.dart';
@@ -21,7 +22,7 @@ Future<void> main() async {
   await SharedPreferencesService.init();
   final deviceName = await Utils.getDeviceName();
   device = deviceName?? Constants.unknownDevice;
-  print(deviceName);
+  debugPrint(deviceName);
   runApp(const MyApp());
 }
 
@@ -37,8 +38,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         brightness: Brightness.light,
         colorSchemeSeed: const Color(0xff84CEFE),
-        fontFamily: 'SFProDisplay',
-        /*package: FontResoft.package,*/
+        fontFamily: FontResoft.sFProText,
+        package: FontResoft.package,
         highlightColor: Colors.transparent,
         splashColor: Colors.transparent,
       ),
