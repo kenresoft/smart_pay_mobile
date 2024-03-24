@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class NotificationDialog extends StatefulWidget {
   final Queue<String> messageQueue; // Change to Queue<String> type
 
-  const NotificationDialog({Key? key, required this.messageQueue});
+  const NotificationDialog({super.key, required this.messageQueue});
 
   @override
   State<NotificationDialog> createState() => _NotificationDialogState();
@@ -32,7 +32,7 @@ class _NotificationDialogState extends State<NotificationDialog> with SingleTick
 
   void _showNextNotification() {
     if (widget.messageQueue.isNotEmpty) {
-      Future.delayed(Duration(seconds: 3), () {
+      Future.delayed(const Duration(seconds: 3), () {
         setState(() {
           widget.messageQueue.removeFirst();
           _animationController.reset();
