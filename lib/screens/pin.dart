@@ -4,6 +4,7 @@ import 'dart:collection';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fontresoft/fontresoft.dart';
 import 'package:smart_pay_mobile/screens/sign_in.dart';
 
 import '../services/prefs.dart';
@@ -46,7 +47,7 @@ class _PinScreenState extends State<PinScreen> with TickerProviderStateMixin {
     previousPin = '';
     currentPin = '';
 
-    print(isSignedIn);
+    debugPrint(isSignedIn.toString());
 
     for (int i = 0; i < controllers.length; i++) {
       controllers[i].addListener(() {
@@ -88,8 +89,8 @@ class _PinScreenState extends State<PinScreen> with TickerProviderStateMixin {
                 resetInputs();
                 startTimer();
               }
-              print('previous$previousPin');
-              print('current$currentPin');
+              debugPrint('previous$previousPin');
+              debugPrint('current$currentPin');
             } else {
               // Nothing to do here
             }
@@ -156,7 +157,7 @@ class _PinScreenState extends State<PinScreen> with TickerProviderStateMixin {
     for (var controller in controllers) {
       combinedOtp += controller.text.trim();
     }
-    print(combinedOtp);
+    debugPrint(combinedOtp);
     return combinedOtp;
   }
 
@@ -227,7 +228,7 @@ class _PinScreenState extends State<PinScreen> with TickerProviderStateMixin {
                         attemptCounter >= 3
                             ? Text(
                                 '$_countdown sec remaining',
-                                style: const TextStyle(
+                                style: Font.sFProDisplay().copyWith(
                                   color: Colors.black,
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
@@ -245,11 +246,10 @@ class _PinScreenState extends State<PinScreen> with TickerProviderStateMixin {
                       animatedTexts: [
                         TyperAnimatedText(
                           !isSignedIn ? 'Set your PIN code' : 'Enter your PIN code',
-                          textStyle: const TextStyle(
-                            color: Color(0xFF111827),
+                          textStyle: Font.sFProDisplay().copyWith(
+                            color: const Color(0xFF111827),
                             fontSize: 27,
-                            fontFamily: 'SFProDisplay',
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w700,
                             letterSpacing: -0.20,
                           ),
                           speed: const Duration(milliseconds: 100),
@@ -260,12 +260,11 @@ class _PinScreenState extends State<PinScreen> with TickerProviderStateMixin {
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: height * 0.02),
-                    child: const Text(
+                    child: Text(
                       'We use state-of-the-art security measures to protect your information at all times',
-                      style: TextStyle(
-                        color: Color(0xFF6B7280),
+                      style: Font.sFProDisplay().copyWith(
+                        color: const Color(0xFF6B7280),
                         fontSize: 19,
-                        fontFamily: 'SFProDisplay',
                         fontWeight: FontWeight.w400,
                         letterSpacing: 0.30,
                       ),
@@ -300,11 +299,10 @@ class _PinScreenState extends State<PinScreen> with TickerProviderStateMixin {
                                     controllers[i].text = value.substring(0, 1);
                                   }
                                 },
-                                style: const TextStyle(
-                                  color: Color(0xFF111827),
+                                style: Font.sFProDisplay().copyWith(
+                                  color: const Color(0xFF111827),
                                   fontSize: 17,
-                                  fontFamily: 'SFProDisplay',
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w700,
                                   letterSpacing: 0.30,
                                 ),
                                 showCursor: true,
@@ -367,8 +365,7 @@ class _PinScreenState extends State<PinScreen> with TickerProviderStateMixin {
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 19,
-                            fontFamily: 'SFProDisplay',
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w700,
                             letterSpacing: 0.30,
                           ),
                         ),
