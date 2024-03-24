@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:extensionresoft/extensionresoft.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fontresoft/fontresoft.dart';
 import 'package:smart_pay_mobile/utils/utils.dart';
 
 import '../services/prefs.dart';
@@ -116,11 +117,11 @@ class _VerifyIdentityState extends State<VerifyIdentity> with TickerProviderStat
                         animatedTexts: [
                           TyperAnimatedText(
                             'Verify your identity',
-                            textStyle: const TextStyle(
-                              color: Color(0xFF111827),
+                            textStyle: Font.sFProDisplay().copyWith(
+                              color: const Color(0xFF111827),
                               fontSize: 27,
-                              fontFamily: 'SFProDisplay',
-                              fontWeight: FontWeight.w600,
+                              
+                              fontWeight: FontWeight.w700,
                               letterSpacing: -0.20,
                             ),
                             speed: const Duration(milliseconds: 100),
@@ -131,35 +132,35 @@ class _VerifyIdentityState extends State<VerifyIdentity> with TickerProviderStat
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: height * 0.02),
-                      child: const Text.rich(
+                      child: Text.rich(
                         TextSpan(
                           children: [
                             TextSpan(
                               text: 'Where would you like ',
-                              style: TextStyle(
-                                color: Color(0xFF6B7280),
+                              style: Font.sFProDisplay().copyWith(
+                                color: const Color(0xFF6B7280),
                                 fontSize: 19,
-                                fontFamily: 'SFProDisplay',
+                                
                                 fontWeight: FontWeight.w400,
                                 letterSpacing: 0.30,
                               ),
                             ),
                             TextSpan(
                               text: 'Smartpay',
-                              style: TextStyle(
-                                color: Color(0xFF0A6375),
+                              style: Font.sFProDisplay().copyWith(
+                                color: const Color(0xFF0A6375),
                                 fontSize: 19,
-                                fontFamily: 'SFProDisplay',
-                                fontWeight: FontWeight.w600,
+                                
+                                fontWeight: FontWeight.w700,
                                 letterSpacing: 0.30,
                               ),
                             ),
                             TextSpan(
                               text: ' to send your security code?',
-                              style: TextStyle(
-                                color: Color(0xFF6B7280),
+                              style: Font.sFProDisplay().copyWith(
+                                color: const Color(0xFF6B7280),
                                 fontSize: 19,
-                                fontFamily: 'SFProDisplay',
+                                
                                 fontWeight: FontWeight.w400,
                                 letterSpacing: 0.30,
                               ),
@@ -220,23 +221,23 @@ class _VerifyIdentityState extends State<VerifyIdentity> with TickerProviderStat
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
+                                  Text(
                                     'Email',
-                                    style: TextStyle(
-                                      color: Color(0xFF111827),
+                                    style: Font.sFProDisplay().copyWith(
+                                      color: const Color(0xFF111827),
                                       fontSize: 18,
-                                      fontFamily: 'SFProDisplay',
-                                      fontWeight: FontWeight.w600,
+                                      
+                                      fontWeight: FontWeight.w700,
                                       letterSpacing: 0.30,
                                     ),
                                   ),
                                   const SizedBox(height: 4),
                                   Text(
                                     getEmail ?? 'Email is not valid',
-                                    style: const TextStyle(
-                                      color: Color(0xFF6B7280),
+                                    style: Font.sFProDisplay().copyWith(
+                                      color: const Color(0xFF6B7280),
                                       fontSize: 14,
-                                      fontFamily: 'SFProDisplay',
+                                      
                                       fontWeight: FontWeight.w500,
                                       letterSpacing: 0.30,
                                     ),
@@ -280,7 +281,7 @@ class _VerifyIdentityState extends State<VerifyIdentity> with TickerProviderStat
                       borderRadius: BorderRadius.circular(16),
                     ),
                   ),
-                  child: const Row(
+                  child: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -288,11 +289,11 @@ class _VerifyIdentityState extends State<VerifyIdentity> with TickerProviderStat
                       Text(
                         'Continue',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: Font.sFProDisplay().copyWith(
                           color: Colors.white,
                           fontSize: 19,
-                          fontFamily: 'SFProDisplay',
-                          fontWeight: FontWeight.w600,
+                          
+                          fontWeight: FontWeight.w700,
                           letterSpacing: 0.30,
                         ),
                       ),
@@ -313,10 +314,10 @@ class _VerifyIdentityState extends State<VerifyIdentity> with TickerProviderStat
                         position: _slideInAnimation,
                         child: Text(
                           loginMessage ?? '',
-                          style: const TextStyle(
+                          style: Font.sFProDisplay().copyWith(
                             color: Colors.green,
                             fontSize: 18,
-                            fontFamily: 'SFProDisplay',
+                            
                             fontWeight: FontWeight.w500,
                           ),
                           textAlign: TextAlign.center,
