@@ -3,6 +3,7 @@ import 'package:extensionresoft/extensionresoft.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fontresoft/fontresoft.dart';
 import 'package:smart_pay_mobile/screens/otp.dart';
 import 'package:smart_pay_mobile/screens/pin.dart';
 import 'package:smart_pay_mobile/services/identity_service.dart';
@@ -125,8 +126,8 @@ class _IdentityState extends State<Identity> with TickerProviderStateMixin {
       }*/
     } else {
       if (response['status'] == true) {
-        final userData = response['data']['user'];
-        final token = response['data']['token'];
+        //final userData = response['data']['user'];
+        //final token = response['data']['token'];
         callback(true, 'Registration successful!');
       } else {
         final errorMessage = response['message'];
@@ -178,27 +179,27 @@ class _IdentityState extends State<Identity> with TickerProviderStateMixin {
                 ),
                 Padding(
                   padding: EdgeInsets.only(bottom: height * 0.005),
-                  child: const Text.rich(
+                  child: Text.rich(
                     TextSpan(
                       children: [
                         TextSpan(
                           text: 'Hey there! tell us a bit \nabout ',
-                          style: TextStyle(
-                            color: Color(0xFF111827),
+                          style: Font.sFProDisplay().copyWith(
+                            color: const Color(0xFF111827),
                             fontSize: 27,
-                            fontFamily: 'SFProDisplay',
-                            fontWeight: FontWeight.w600,
+
+                            fontWeight: FontWeight.w700,
                             //height: 0.05,
                             letterSpacing: -0.20,
                           ),
                         ),
                         TextSpan(
                           text: 'yourself',
-                          style: TextStyle(
-                            color: Color(0xFF0A6375),
+                          style: Font.sFProDisplay().copyWith(
+                            color: const Color(0xFF0A6375),
                             fontSize: 27,
-                            fontFamily: 'SFProDisplay',
-                            fontWeight: FontWeight.w600,
+
+                            fontWeight: FontWeight.w700,
                             //height: 0.05,
                             letterSpacing: -0.20,
                           ),
@@ -224,21 +225,19 @@ class _IdentityState extends State<Identity> with TickerProviderStateMixin {
                     ),
                     child: TextField(
                       controller: fullNameController,
-                      decoration: const InputDecoration.collapsed(
+                      decoration: InputDecoration.collapsed(
                         hintText: 'Full name',
-                        hintStyle: TextStyle(
-                          color: Color(0xFF9CA3AF),
+                        hintStyle: Font.sFProDisplay().copyWith(
+                          color: const Color(0xFF9CA3AF),
                           fontSize: 19,
-                          fontFamily: 'SFProDisplay',
                           fontWeight: FontWeight.w400,
                           letterSpacing: 0.30,
                         ),
                       ),
-                      style: const TextStyle(
-                        color: Color(0xFF111827),
+                      style: Font.sFProDisplay().copyWith(
+                        color: const Color(0xFF111827),
                         fontSize: 21,
-                        fontFamily: 'SFProDisplay',
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                         letterSpacing: 0.30,
                       ),
                     ),
@@ -261,21 +260,19 @@ class _IdentityState extends State<Identity> with TickerProviderStateMixin {
                     ),
                     child: TextField(
                       controller: userNameController,
-                      decoration: const InputDecoration.collapsed(
+                      decoration: InputDecoration.collapsed(
                         hintText: 'Username',
-                        hintStyle: TextStyle(
-                          color: Color(0xFF9CA3AF),
+                        hintStyle: Font.sFProDisplay().copyWith(
+                          color: const Color(0xFF9CA3AF),
                           fontSize: 19,
-                          fontFamily: 'SFProDisplay',
                           fontWeight: FontWeight.w400,
                           letterSpacing: 0.30,
                         ),
                       ),
-                      style: const TextStyle(
-                        color: Color(0xFF111827),
+                      style: Font.sFProDisplay().copyWith(
+                        color: const Color(0xFF111827),
                         fontSize: 21,
-                        fontFamily: 'SFProDisplay',
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                         letterSpacing: 0.30,
                       ),
                     ),
@@ -332,19 +329,17 @@ class _IdentityState extends State<Identity> with TickerProviderStateMixin {
                         ),
                         suffixIcon: const Icon(Icons.keyboard_arrow_down),
                         hintText: 'Select Country',
-                        hintStyle: const TextStyle(
-                          color: Color(0xFF9CA3AF),
+                        hintStyle: Font.sFProDisplay().copyWith(
+                          color: const Color(0xFF9CA3AF),
                           fontSize: 19,
-                          fontFamily: 'SFProDisplay',
                           fontWeight: FontWeight.w400,
                           letterSpacing: 0.30,
                         ),
                       ),
-                      style: const TextStyle(
-                        color: Color(0xFF111827),
+                      style: Font.sFProDisplay().copyWith(
+                        color: const Color(0xFF111827),
                         fontSize: 21,
-                        fontFamily: 'SFProDisplay',
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                         letterSpacing: 0.30,
                       ),
                     ),
@@ -379,19 +374,18 @@ class _IdentityState extends State<Identity> with TickerProviderStateMixin {
                             setState(() => obscureText = !obscureText);
                           },
                         ),
-                        hintStyle: const TextStyle(
-                          color: Color(0xFF9CA3AF),
+                        hintStyle: Font.sFProDisplay().copyWith(
+                          color: const Color(0xFF9CA3AF),
                           fontSize: 19,
-                          fontFamily: 'SFProDisplay',
                           fontWeight: FontWeight.w400,
                           letterSpacing: 0.30,
                         ),
                       ),
-                      style: const TextStyle(
-                        color: Color(0xFF111827),
+                      style: Font.sFProDisplay().copyWith(
+                        color: const Color(0xFF111827),
                         fontSize: 24,
                         fontFamily: 'SF Pro Display',
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                         letterSpacing: 4,
                       ),
                     ),
@@ -430,7 +424,7 @@ class _IdentityState extends State<Identity> with TickerProviderStateMixin {
                           borderRadius: BorderRadius.circular(16),
                         ),
                       ),
-                      child: const Row(
+                      child: Row(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -438,11 +432,10 @@ class _IdentityState extends State<Identity> with TickerProviderStateMixin {
                           Text(
                             'Sign In',
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: Font.sFProDisplay().copyWith(
                               color: Colors.white,
                               fontSize: 19,
-                              fontFamily: 'SFProDisplay',
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w700,
                               letterSpacing: 0.30,
                             ),
                           ),
@@ -464,10 +457,9 @@ class _IdentityState extends State<Identity> with TickerProviderStateMixin {
                           position: _slideInAnimation,
                           child: Text(
                             loginMessage ?? '',
-                            style: const TextStyle(
+                            style: Font.sFProDisplay().copyWith(
                               color: Colors.green,
                               fontSize: 18,
-                              fontFamily: 'SFProDisplay',
                               fontWeight: FontWeight.w500,
                             ),
                             textAlign: TextAlign.center,
