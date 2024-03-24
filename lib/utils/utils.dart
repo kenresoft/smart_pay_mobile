@@ -18,7 +18,7 @@ class Utils {
         }
       }
     } catch (e) {
-      print('Error getting device name: $e');
+      debugPrint('Error getting device name: $e');
     }
     return null;
   }
