@@ -11,11 +11,12 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.6
+  fontresoft: ^0.0.4
+  extensionresoft: ^0.0.5
   flutter_svg: ^2.0.10+1
   font_awesome_flutter: ^10.7.0
   animated_text_kit: ^4.2.2
-  extensionresoft: ^0.0.5
-  country_flags: ^2.2.0
+  #country_flags: ^2.2.0
   country_icons: ^3.0.0
   iso_countries: ^2.2.0
   device_info_plus: ^9.1.2
@@ -36,16 +37,16 @@ flutter:
     - assets/icons/
     - assets/images/
 
-  fonts:
-    - family: SFProDisplay
-      fonts:
-        - asset: fonts/SF-Pro-Display-Regular.otf
-          weight: 400
-        - asset: fonts/SF-Pro-Display-Medium.otf
-          weight: 500
-        - asset: fonts/SF-Pro-Display-Bold.otf
-          weight: 600
-        - asset: fonts/SF-Pro-Display-Black.otf
-          weight: 800
+#  fonts:
+#    - family: SFProDisplay
+#      fonts:
+#        - asset: fonts/SF-Pro-Display-Regular.otf
+#          weight: 400
+#        - asset: fonts/SF-Pro-Display-Medium.otf
+#          weight: 500
+#        - asset: fonts/SF-Pro-Display-Bold.otf
+#          weight: 600
+#        - asset: fonts/SF-Pro-Display-Black.otf
+#          weight: 800
 
 
