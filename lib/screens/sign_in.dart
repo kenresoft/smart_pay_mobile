@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:fontresoft/fontresoft.dart';
 import 'package:smart_pay_mobile/screens/pin.dart';
 import 'package:smart_pay_mobile/screens/sign_up.dart';
 
@@ -97,12 +98,11 @@ class _SignInState extends State<SignIn> with TickerProviderStateMixin {
     } else {
       if (response['status'] == true) {
         final userData = response['data']['user'];
-        final token = response['data']['token'];
-        final userId = userData['id'];
+        //final token = response['data']['token'];
+        //final userId = userData['id'];
         fullName = userData['full_name'];
         showMessage('Sign in successful!');
         Future.delayed(const Duration(milliseconds: 1000), () {
-          // Navigate to the next screen after animations complete
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
@@ -173,10 +173,9 @@ class _SignInState extends State<SignIn> with TickerProviderStateMixin {
                   animatedTexts: [
                     TyperAnimatedText(
                       'Hi There! 👋',
-                      textStyle: const TextStyle(
-                        color: Color(0xFF111827),
+                      textStyle: Font.sFProDisplay().copyWith(
+                        color: const Color(0xFF111827),
                         fontSize: 27,
-                        fontFamily: 'SFProDisplay',
                         fontWeight: FontWeight.w700,
                         letterSpacing: -0.20,
                       ),
@@ -188,12 +187,12 @@ class _SignInState extends State<SignIn> with TickerProviderStateMixin {
               ),
               Padding(
                 padding: EdgeInsets.only(top: height * 0.02),
-                child: const Text(
+                child: Text(
                   'Welcome back, Sign in to your account',
-                  style: TextStyle(
-                    color: Color(0xFF6B7280),
+                  style: Font.sFProDisplay().copyWith(
+                    color: const Color(0xFF6B7280),
                     fontSize: 19,
-                    fontFamily: 'SFProDisplay',
+
                     fontWeight: FontWeight.w400,
                     //height: 0.09,
                     letterSpacing: 0.30,
@@ -215,21 +214,19 @@ class _SignInState extends State<SignIn> with TickerProviderStateMixin {
                   ),
                   child: TextField(
                     controller: emailController,
-                    decoration: const InputDecoration.collapsed(
+                    decoration: InputDecoration.collapsed(
                       hintText: 'Email',
-                      hintStyle: TextStyle(
-                        color: Color(0xFF9CA3AF),
+                      hintStyle: Font.sFProDisplay().copyWith(
+                        color: const Color(0xFF9CA3AF),
                         fontSize: 19,
-                        fontFamily: 'SFProDisplay',
                         fontWeight: FontWeight.w400,
                         letterSpacing: 0.30,
                       ),
                     ),
-                    style: const TextStyle(
-                      color: Color(0xFF111827),
+                    style: Font.sFProDisplay().copyWith(
+                      color: const Color(0xFF111827),
                       fontSize: 21,
-                      fontFamily: 'SFProDisplay',
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w700,
                       letterSpacing: 0.30,
                     ),
                   ),
@@ -262,19 +259,18 @@ class _SignInState extends State<SignIn> with TickerProviderStateMixin {
                           setState(() => obscureText = !obscureText);
                         },
                       ),
-                      hintStyle: const TextStyle(
-                        color: Color(0xFF9CA3AF),
+                      hintStyle: Font.sFProDisplay().copyWith(
+                        color: const Color(0xFF9CA3AF),
                         fontSize: 19,
-                        fontFamily: 'SFProDisplay',
                         fontWeight: FontWeight.w400,
                         letterSpacing: 0.30,
                       ),
                     ),
-                    style: const TextStyle(
-                      color: Color(0xFF111827),
+                    style: Font.sFProDisplay().copyWith(
+                      color: const Color(0xFF111827),
                       fontSize: 24,
                       fontFamily: 'SF Pro Display',
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w700,
                       letterSpacing: 4,
                     ),
                   ),
@@ -286,13 +282,12 @@ class _SignInState extends State<SignIn> with TickerProviderStateMixin {
                 },
                 child: Padding(
                   padding: EdgeInsets.only(bottom: height * 0.004),
-                  child: const Text(
+                  child: Text(
                     'Forgot Password?',
-                    style: TextStyle(
-                      color: Color(0xFF0A6375),
+                    style: Font.sFProDisplay().copyWith(
+                      color: const Color(0xFF0A6375),
                       fontSize: 19,
-                      fontFamily: 'SFProDisplay',
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w700,
                       letterSpacing: 0.30,
                     ),
                   ),
@@ -312,18 +307,17 @@ class _SignInState extends State<SignIn> with TickerProviderStateMixin {
                         borderRadius: BorderRadius.circular(16),
                       ),
                     ),
-                    child: const Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
                           'Sign In',
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: Font.sFProDisplay().copyWith(
                             color: Colors.white,
                             fontSize: 19,
-                            fontFamily: 'SFProDisplay',
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w700,
                             letterSpacing: 0.30,
                           ),
                         ),
@@ -345,10 +339,9 @@ class _SignInState extends State<SignIn> with TickerProviderStateMixin {
                         position: _slideInAnimation,
                         child: Text(
                           loginMessage ?? '',
-                          style: const TextStyle(
+                          style: Font.sFProDisplay().copyWith(
                             color: Colors.green,
                             fontSize: 18,
-                            fontFamily: 'SFProDisplay',
                             fontWeight: FontWeight.w500,
                           ),
                           //speed: const Duration(milliseconds: 100),
@@ -388,13 +381,12 @@ class _SignInState extends State<SignIn> with TickerProviderStateMixin {
                         ),
                       ),
                       const SizedBox(width: 12),
-                      const Text(
+                      Text(
                         'OR',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xFF6B7280),
+                        style: Font.sFProDisplay().copyWith(
+                          color: const Color(0xFF6B7280),
                           fontSize: 17,
-                          fontFamily: 'SFProDisplay',
                           fontWeight: FontWeight.w400,
                           height: 0.11,
                           letterSpacing: 0.30,
@@ -474,15 +466,15 @@ class _SignInState extends State<SignIn> with TickerProviderStateMixin {
                         builder: (context) => const SignUp(),
                       ),
                     ),
-                    child: const Text.rich(
+                    child: Text.rich(
                       TextSpan(
                         children: [
                           TextSpan(
                             text: 'Don’t have an account? ',
-                            style: TextStyle(
-                              color: Color(0xFF6B7280),
+                            style: Font.sFProDisplay().copyWith(
+                              color: const Color(0xFF6B7280),
                               fontSize: 19,
-                              fontFamily: 'SFProDisplay',
+
                               fontWeight: FontWeight.w400,
                               //height: 0.09,
                               letterSpacing: 0.30,
@@ -490,11 +482,11 @@ class _SignInState extends State<SignIn> with TickerProviderStateMixin {
                           ),
                           TextSpan(
                             text: 'Sign Up',
-                            style: TextStyle(
-                              color: Color(0xFF0A6375),
+                            style: Font.sFProDisplay().copyWith(
+                              color: const Color(0xFF0A6375),
                               fontSize: 19,
-                              fontFamily: 'SFProDisplay',
-                              fontWeight: FontWeight.w600,
+
+                              fontWeight: FontWeight.w700,
                               //height: 0.09,
                               letterSpacing: 0.30,
                             ),
