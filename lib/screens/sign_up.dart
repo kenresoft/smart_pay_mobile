@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:fontresoft/fontresoft.dart';
 import 'package:smart_pay_mobile/screens/onboarding.dart';
 import 'package:smart_pay_mobile/screens/sign_in.dart';
 import 'package:smart_pay_mobile/services/sign_up_service.dart';
@@ -152,36 +153,36 @@ class _SignUpState extends State<SignUp> with TickerProviderStateMixin {
               ),
               Padding(
                 padding: EdgeInsets.only(bottom: height * 0.005),
-                child: const Text.rich(
+                child: Text.rich(
                   TextSpan(
                     children: [
                       TextSpan(
                         text: 'Create a ',
-                        style: TextStyle(
-                          color: Color(0xFF111827),
+                        style: Font.sFProDisplay().copyWith(
+                          color: const Color(0xFF111827),
                           fontSize: 27,
-                          fontFamily: 'SFProDisplay',
-                          fontWeight: FontWeight.w600,
+                          
+                          fontWeight: FontWeight.w700,
                           letterSpacing: -0.20,
                         ),
                       ),
                       TextSpan(
                         text: 'Smartpay\n',
-                        style: TextStyle(
-                          color: Color(0xFF0A6375),
+                        style: Font.sFProDisplay().copyWith(
+                          color: const Color(0xFF0A6375),
                           fontSize: 27,
-                          fontFamily: 'SFProDisplay',
-                          fontWeight: FontWeight.w600,
+                          
+                          fontWeight: FontWeight.w700,
                           letterSpacing: -0.20,
                         ),
                       ),
                       TextSpan(
                         text: 'account',
-                        style: TextStyle(
-                          color: Color(0xFF111827),
+                        style: Font.sFProDisplay().copyWith(
+                          color: const Color(0xFF111827),
                           fontSize: 27,
-                          fontFamily: 'SFProDisplay',
-                          fontWeight: FontWeight.w600,
+                          
+                          fontWeight: FontWeight.w700,
                           letterSpacing: -0.20,
                         ),
                       ),
@@ -206,21 +207,21 @@ class _SignUpState extends State<SignUp> with TickerProviderStateMixin {
                   ),
                   child: TextField(
                     controller: emailController,
-                    decoration: const InputDecoration.collapsed(
+                    decoration: InputDecoration.collapsed(
                       hintText: 'Email',
-                      hintStyle: TextStyle(
-                        color: Color(0xFF9CA3AF),
+                      hintStyle: Font.sFProDisplay().copyWith(
+                        color: const Color(0xFF9CA3AF),
                         fontSize: 19,
-                        fontFamily: 'SFProDisplay',
+                        
                         fontWeight: FontWeight.w400,
                         letterSpacing: 0.30,
                       ),
                     ),
-                    style: const TextStyle(
-                      color: Color(0xFF111827),
+                    style: Font.sFProDisplay().copyWith(
+                      color: const Color(0xFF111827),
                       fontSize: 21,
-                      fontFamily: 'SFProDisplay',
-                      fontWeight: FontWeight.w600,
+                      
+                      fontWeight: FontWeight.w700,
                       letterSpacing: 0.30,
                     ),
                   ),
@@ -254,18 +255,18 @@ class _SignUpState extends State<SignUp> with TickerProviderStateMixin {
                         borderRadius: BorderRadius.circular(16),
                       ),
                     ),
-                    child: const Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
                           'Sign In',
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: Font.sFProDisplay().copyWith(
                             color: Colors.white,
                             fontSize: 19,
-                            fontFamily: 'SFProDisplay',
-                            fontWeight: FontWeight.w600,
+                            
+                            fontWeight: FontWeight.w700,
                             letterSpacing: 0.30,
                           ),
                         ),
@@ -287,10 +288,10 @@ class _SignUpState extends State<SignUp> with TickerProviderStateMixin {
                         position: _slideInAnimation,
                         child: Text(
                           loginMessage ?? '',
-                          style: const TextStyle(
+                          style: Font.sFProDisplay().copyWith(
                             color: Colors.green,
                             fontSize: 18,
-                            fontFamily: 'SFProDisplay',
+                            
                             fontWeight: FontWeight.w500,
                           ),
                           textAlign: TextAlign.center,
@@ -332,13 +333,13 @@ class _SignUpState extends State<SignUp> with TickerProviderStateMixin {
                         ),
                       ),
                       const SizedBox(width: 12),
-                      const Text(
+                      Text(
                         'OR',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xFF6B7280),
+                        style: Font.sFProDisplay().copyWith(
+                          color: const Color(0xFF6B7280),
                           fontSize: 17,
-                          fontFamily: 'SFProDisplay',
+                          
                           fontWeight: FontWeight.w400,
                           height: 0.11,
                           letterSpacing: 0.30,
@@ -423,15 +424,15 @@ class _SignUpState extends State<SignUp> with TickerProviderStateMixin {
                         ),
                       );
                     },
-                    child: const Text.rich(
+                    child: Text.rich(
                       TextSpan(
                         children: [
                           TextSpan(
                             text: 'Already have an account? ',
-                            style: TextStyle(
-                              color: Color(0xFF6B7280),
+                            style: Font.sFProDisplay().copyWith(
+                              color: const Color(0xFF6B7280),
                               fontSize: 19,
-                              fontFamily: 'SFProDisplay',
+                              
                               fontWeight: FontWeight.w400,
                               //height: 0.09,
                               letterSpacing: 0.30,
@@ -439,11 +440,11 @@ class _SignUpState extends State<SignUp> with TickerProviderStateMixin {
                           ),
                           TextSpan(
                             text: 'Sign In',
-                            style: TextStyle(
-                              color: Color(0xFF0A6375),
+                            style: Font.sFProDisplay().copyWith(
+                              color: const Color(0xFF0A6375),
                               fontSize: 19,
-                              fontFamily: 'SFProDisplay',
-                              fontWeight: FontWeight.w600,
+                              
+                              fontWeight: FontWeight.w700,
                               //height: 0.09,
                               letterSpacing: 0.30,
                             ),
