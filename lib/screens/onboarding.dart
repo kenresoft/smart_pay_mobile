@@ -22,14 +22,15 @@ class _OnboardingState extends State<Onboarding> {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint(MediaQuery.of(context).size.height.toString());
-
+    final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
+
+    debugPrint('width: $width, height: $height');
 
     return Scaffold(
       body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
+        width: width,
+        height: height,
         color: const Color(0xFFF9FAFB),
         child: Column(
           children: [
@@ -49,17 +50,15 @@ class _OnboardingState extends State<Onboarding> {
                   style: Font.sFProDisplay().copyWith(
                     color: const Color(0xFF2FA2B9),
                     fontSize: 16,
-
                     fontWeight: FontWeight.w700,
-                    //height: 0.09,
                     letterSpacing: 0.30,
                   ),
                 ),
               ),
             ),
-            SizedBox(height: height * 0.126),
+            SizedBox(height: height * 0.1026),
             Container(
-              width: double.infinity,
+              width: width * 0.75,
               height: height * 0.369,
               decoration: const BoxDecoration(
                 image: DecorationImage(
@@ -71,15 +70,13 @@ class _OnboardingState extends State<Onboarding> {
             Padding(
               padding: EdgeInsets.only(top: height * 0.072),
               child: SizedBox(
-                width: 287,
+                width: width * 0.8,
                 child: Text(
                   'Finance app the safest and most trusted',
                   style: Font.sFProDisplay().copyWith(
                     color: const Color(0xFF111827),
                     fontSize: 24,
-
                     fontWeight: FontWeight.w700,
-                    //height: 0.05,
                     letterSpacing: -0.20,
                   ),
                   textAlign: TextAlign.center,
@@ -88,16 +85,14 @@ class _OnboardingState extends State<Onboarding> {
             ),
             SizedBox(height: height * 0.025),
             SizedBox(
-              width: 287,
+              width: width * 0.8,
               child: Text(
                 'Your finance work starts here. Our here to help you track and deal with speeding up your transactions.',
                 textAlign: TextAlign.center,
                 style: Font.sFProDisplay().copyWith(
                   color: const Color(0xFF6B7280),
                   fontSize: 14,
-
                   fontWeight: FontWeight.w400,
-                  //height: 0.11,
                   letterSpacing: 0.30,
                 ),
               ),
