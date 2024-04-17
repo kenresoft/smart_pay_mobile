@@ -1,5 +1,7 @@
 # SmartPay Mobile App
 
+[![Codemagic build status](https://api.codemagic.io/apps/661fdfb4a9c9e8edc16d64a2/661fdfb4a9c9e8edc16d64a1/status_badge.svg)](https://codemagic.io/apps/661fdfb4a9c9e8edc16d64a2/661fdfb4a9c9e8edc16d64a1/latest_build)
+
 This repository contains the code for the **_SmartPay_** mobile application, 
 developed by us, as part of a mobile developer screening test for Apex Network. 
 The app is designed to provide an intuitive onboarding and authentication flow for users, 
